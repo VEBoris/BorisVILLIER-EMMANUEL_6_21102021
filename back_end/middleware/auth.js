@@ -16,3 +16,5 @@ module.exports = (req, res, next) => {
     });
   }
 };
+
+// token permet la connexion unique à un compte (2 utilisateurs ne peuvent se connecter à un même compte)
