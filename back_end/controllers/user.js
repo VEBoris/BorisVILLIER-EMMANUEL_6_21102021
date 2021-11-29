@@ -1,15 +1,15 @@
-// Installez npm install --save bcrypt dans backend
+// bcrypt est une fonction qui permet le hashage (ou même cryptage)
 const bcrypt = require('bcrypt');
 
-// Installez npm install --save jsonwebtoken dans backend
+// jsonwebtoken permet l'échange sécurisé de tokens entre plusieurs parties
 const jwt = require('jsonwebtoken');
 
 const User = require('../models/User');
 
-// On va d'abord hash le mot de passe avec bcrypt (fonction asynchrone prends du temps), puis enregistrer l'utilisateur
+// On va d'abord hasher le mot de passe avec bcrypt (fonction asynchrone prends du temps), puis enregistrer l'utilisateur
 exports.signup = (req, res, next) => {
     bcrypt.hash(req.body.password, 10) // on met 10 tours pour securiser le mot de passe (plus de tours = plus de temps)
-      .then(hash => {
+      .then(hash => { // hash permet de rendre plus rapide l'identification des données, permet également d'enregistrer le mot de passe sous forme de chaîne chiffrée
         const user = new User({
           email: req.body.email,
           password: hash

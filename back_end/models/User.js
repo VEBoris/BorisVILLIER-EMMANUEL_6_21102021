@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+// mongoose unique validator est un plugin qui s'assure que 2 utilisateurs n'est pas le même mail
 const uniqueValidator = require('mongoose-unique-validator');
 
 const userSchema = mongoose.Schema({
